@@ -15,6 +15,9 @@ OUTPUT_PATH = "/output/entry.txt"
 
 
 def main() -> None:
+    # Self-check the gate before writing: the scorer accepts 1-200 characters.
+    if not 1 <= len(JOKE) <= 200:
+        raise SystemExit("joke must be 1-200 characters")
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     # No trailing newline: entry.txt holds exactly the 83-character joke line.
     with open(OUTPUT_PATH, "w", encoding="utf-8", newline="") as f:
