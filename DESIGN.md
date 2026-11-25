@@ -59,7 +59,8 @@ its own as a joke; no instruction to the judge is smuggled in.
 `main.py` is intentionally boring. The joke is a module-level constant; `main()`
 creates `/output` if needed and writes the constant with no trailing newline, so
 the file holds exactly the 83-character line and the gate's 1–200 character check
-passes with margin on both sides. There is no randomness, no clock, no network
+passes with margin on both sides. `main()` also self-checks the length (1–200)
+before writing, failing loudly instead of producing an invalid entry. There is no randomness, no clock, no network
 access, no environment reading, and nothing is read from outside the repository —
 the program's output is identical on every run by construction, which the
 determinism check (two runs, byte-identical, recorded in BUILD-REPORT.md) confirms
